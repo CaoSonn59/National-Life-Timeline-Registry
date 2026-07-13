@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { campaignCopy } from '../data/campaignCopy';
 import { RegistryHeader } from '../components/campaign/RegistryHeader';
 import { CampaignLayout } from '../components/campaign/CampaignLayout';
+import { Button } from '../components/campaign/Button';
 
 import type { AssessmentFormData } from '../types/campaign';
 
@@ -21,11 +22,7 @@ export const ResultSection: React.FC<ResultSectionProps> = ({ formData, onComple
   useEffect(() => {
     // Generate random confidence score between 80 and 99
     setRandomConfidence(Math.floor(Math.random() * (99 - 80 + 1)) + 80);
-
-    // Automatically transition to questioning screen after 5 seconds (was 2)
-    const timer = setTimeout(onComplete, 5000);
-    return () => clearTimeout(timer);
-  }, [onComplete]);
+  }, []);
 
   return (
     <>
@@ -84,6 +81,17 @@ export const ResultSection: React.FC<ResultSectionProps> = ({ formData, onComple
               </div>
             ))}
           </div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+            className="mt-12 flex justify-center"
+          >
+            <Button onClick={onComplete} variant={isDeviant ? "red" : "default"} fullWidth>
+              Continue
+            </Button>
+          </motion.div>
         </motion.div>
       </CampaignLayout>
     </>

@@ -36,19 +36,41 @@ export const SocialQuotesSection: React.FC<SocialQuotesSectionProps> = ({ onNext
 
   // Pre-calculate positions and styles so they don't jump around
   const quoteStyles = useMemo(() => {
-    return allPhrases.map((_, idx) => {
-      // Progress from 0 to 1
+    const positions: {top: number, left: number, scale: number}[] = [];
+    
+    for (let idx = 0; idx < allPhrases.length; idx++) {
       const progress = idx / (allPhrases.length - 1);
-      
-      // Allow phrases to go off screen (0% to 100% or more)
-      const top = -10 + Math.random() * 120;
-      const left = -10 + Math.random() * 120;
-      
-      // Increase font size aggressively
       const scale = 0.5 + (progress * 3) + (Math.random() * 1);
       
-      return { top: `${top}%`, left: `${left}%`, scale };
-    });
+      let top = 0;
+      let left = 0;
+      let isValid = false;
+      let attempts = 0;
+      
+      while (!isValid && attempts < 50) {
+        // Allow phrases to go off screen (0% to 100% or more)
+        top = -10 + Math.random() * 120;
+        left = -10 + Math.random() * 120;
+        
+        // Check distance against previous positions to avoid overlap
+        isValid = true;
+        for (const pos of positions) {
+          if (Math.abs(top - pos.top) < 12 && Math.abs(left - pos.left) < 20) {
+            isValid = false;
+            break;
+          }
+        }
+        attempts++;
+      }
+      
+      positions.push({ top, left, scale });
+    }
+    
+    return positions.map(pos => ({
+      top: `${pos.top}%`, 
+      left: `${pos.left}%`, 
+      scale: pos.scale 
+    }));
   }, [allPhrases]);
 
   return (
