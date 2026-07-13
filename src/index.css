@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-registry-light text-registry-navy font-sans antialiased m-0 p-0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .registry-btn {
+    @apply px-6 py-3 bg-registry-navy text-registry-light font-medium rounded-sm border border-registry-navy
+    hover:bg-registry-light hover:text-registry-navy transition-colors focus:outline-none focus:ring-2 focus:ring-registry-navy focus:ring-offset-2;
+  }
+  
+  .registry-btn-red {
+    @apply px-6 py-3 bg-registry-red text-registry-light font-medium rounded-sm border border-registry-red
+    hover:bg-white hover:text-registry-red transition-colors focus:outline-none focus:ring-2 focus:ring-registry-red focus:ring-offset-2;
+  }
+  
+  .registry-input {
+    @apply w-full px-4 py-3 bg-white border border-registry-border rounded-sm focus:outline-none focus:ring-1 focus:ring-registry-navy focus:border-registry-navy transition-colors;
+  }
+  
+  .registry-label {
+    @apply block text-sm font-medium text-registry-navy mb-2;
+  }
+}
+
+/* Custom minimal scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-registry-border rounded-full;
+}
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-registry-gray;
+}
