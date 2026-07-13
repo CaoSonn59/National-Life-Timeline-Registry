@@ -88,7 +88,7 @@ export const ResultSection: React.FC<ResultSectionProps> = ({ formData, onComple
             transition={{ delay: 1 }}
             className="mt-12 flex justify-center"
           >
-            <Button onClick={onComplete} variant={isDeviant ? "red" : "default"} fullWidth>
+            <Button onClick={onComplete} variant={isDeviant ? "red" : "primary"} fullWidth>
               Continue
             </Button>
           </motion.div>
