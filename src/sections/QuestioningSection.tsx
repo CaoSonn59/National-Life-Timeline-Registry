@@ -58,7 +58,7 @@ export const QuestioningSection: React.FC<QuestioningSectionProps> = ({ onNext }
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: step >= 3 ? 1 : 0, y: step >= 3 ? 0 : 10 }}
-            className="text-2xl md:text-3xl font-bold text-registry-red"
+            className="text-2xl md:text-3xl font-bold text-registry-pink"
           >
             {copy.a2}
           </motion.div>
@@ -70,7 +70,7 @@ export const QuestioningSection: React.FC<QuestioningSectionProps> = ({ onNext }
           transition={{ delay: 1 }}
           className="absolute bottom-0 w-full max-w-sm mx-auto"
         >
-          <Button onClick={onNext} variant="red" fullWidth>
+          <Button onClick={onNext} variant="pink" fullWidth>
             {copy.cta}
           </Button>
         </motion.div>

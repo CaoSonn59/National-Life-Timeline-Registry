@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // Force HMR update
 import { motion } from 'framer-motion';
 import { campaignCopy } from '../data/campaignCopy';
 import { CampaignLayout } from '../components/campaign/CampaignLayout';
@@ -13,13 +13,13 @@ export const FinalMessageSection: React.FC<FinalMessageSectionProps> = ({ onNext
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <header className="w-full py-6 border-b border-registry-red mb-12">
+      <header className="w-full py-6 border-b border-registry-pink mb-12">
         <div className="max-w-3xl mx-auto px-6 flex items-center gap-4">
-          <div className="w-12 h-12 bg-registry-red flex items-center justify-center">
-            <div className="w-6 h-6 border-2 border-black rounded-sm rotate-45"></div>
+          <div className="w-12 h-12 bg-registry-pink rounded-full flex items-center justify-center text-white text-2xl font-bold">
+            D
           </div>
           <div>
-            <h1 className="text-xl font-bold tracking-tight uppercase text-registry-red">
+            <h1 className="text-xl font-bold tracking-tight uppercase text-registry-pink">
               {copy.identity}
             </h1>
             <p className="text-xs text-registry-gray uppercase tracking-wider mt-1">
@@ -57,7 +57,7 @@ export const FinalMessageSection: React.FC<FinalMessageSectionProps> = ({ onNext
             transition={{ duration: 1, delay: 2.5 }}
             className="py-12"
           >
-            <h2 className="text-3xl md:text-5xl font-black text-registry-red leading-tight">
+            <h2 className="text-3xl md:text-5xl font-black text-registry-pink leading-tight">
               {copy.statement}
             </h2>
           </motion.div>
@@ -66,10 +66,10 @@ export const FinalMessageSection: React.FC<FinalMessageSectionProps> = ({ onNext
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 4 }}
-            className="pt-16 mt-16 border-t-2 border-registry-red flex flex-col items-center text-center space-y-8"
+            className="pt-16 mt-16 border-t-2 border-registry-pink flex flex-col items-center text-center space-y-8"
           >
             <p className="text-xl text-registry-light">{copy.ctaLead}</p>
-            <Button onClick={onNext} variant="red" className="text-xl py-6 px-8 max-w-md w-full">
+            <Button onClick={onNext} variant="pink" className="text-xl py-6 px-8 max-w-md w-full">
               {copy.cta}
             </Button>
           </motion.div>

@@ -35,7 +35,7 @@ export const GlitchTransition: React.FC<GlitchTransitionProps> = ({ onComplete }
           <div className="absolute inset-0 bg-white/10 z-10 animate-pulse pointer-events-none" />
           
           {/* Horizontal scan line */}
-          <div className="absolute w-full h-1 bg-registry-red opacity-50 z-20 top-1/3 shadow-[0_0_8px_rgba(220,38,38,0.8)]" />
+          <div className="absolute w-full h-1 bg-registry-pink opacity-50 z-20 top-1/3 shadow-[0_0_8px_rgba(237,113,165,0.8)]" />
           <div className="absolute w-full h-[2px] bg-registry-navy opacity-30 z-20 top-2/3" />
 
           {/* Glitching Text Elements */}
@@ -43,12 +43,12 @@ export const GlitchTransition: React.FC<GlitchTransitionProps> = ({ onComplete }
             <h2 className="text-4xl font-bold font-mono text-registry-navy transform -translate-x-2">
               ERROR: PATHWAY OVERRIDE
             </h2>
-            <div className="text-registry-red text-2xl font-bold tracking-[0.2em] opacity-80 mix-blend-multiply">
+            <div className="text-registry-pink text-2xl font-bold tracking-[0.2em] opacity-80 mix-blend-multiply">
               SYSTEM EXPECTATION REJECTED
             </div>
             
             <div className="w-full max-w-md mx-auto h-2 bg-registry-border mt-12 relative overflow-hidden">
-               <div className="absolute top-0 right-0 h-full bg-registry-red w-full origin-right animate-[shrink_4s_ease-out_forwards]" />
+               <div className="absolute top-0 right-0 h-full bg-registry-pink w-full origin-right animate-[shrink_4s_ease-out_forwards]" />
             </div>
           </div>
         </div>

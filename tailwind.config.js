@@ -10,6 +10,7 @@ export default {
         registry: {
           navy: '#0f172a',    // Dark navy for text
           red: '#dc2626',     // Alert/accent red
+          pink: '#ed71a5',    // Pink accent
           light: '#f8fafc',   // Off-white background
           border: '#e2e8f0',  // Light border
           gray: '#64748b'     // Secondary text

@@ -89,7 +89,7 @@ export const SocialQuotesSection: React.FC<SocialQuotesSectionProps> = ({ onNext
                 scale: visibleQuotes > idx ? style.scale : 0.1
               }}
               transition={{ type: "spring", stiffness: 50 }}
-              className="absolute whitespace-nowrap font-bold italic text-registry-red mix-blend-screen"
+              className="absolute whitespace-nowrap font-bold italic text-registry-pink mix-blend-screen"
               style={{ 
                 top: style.top, 
                 left: style.left,
@@ -109,14 +109,14 @@ export const SocialQuotesSection: React.FC<SocialQuotesSectionProps> = ({ onNext
             initial={{ opacity: 0 }}
             animate={{ opacity: visibleQuotes >= allPhrases.length ? 1 : 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="w-full max-w-xl text-center space-y-12 z-10 bg-black/95 p-8 border-2 border-registry-red relative shadow-[0_0_50px_rgba(220,38,38,0.5)]"
+            className="w-full max-w-xl text-center space-y-12 z-10 bg-black/95 p-8 border-2 border-registry-pink relative shadow-[0_0_50px_rgba(237,113,165,0.5)]"
           >
             <div className="space-y-4">
               <p className="text-xl md:text-2xl text-registry-gray">{copy.summary1}</p>
               <p className="text-2xl md:text-3xl font-black text-white">{copy.summary2}</p>
             </div>
 
-            <Button onClick={onNext} variant="red" fullWidth className="text-xl tracking-widest py-6 glitch-text">
+            <Button onClick={onNext} variant="pink" fullWidth className="text-xl tracking-widest py-6 glitch-text-pink">
               {copy.cta}
             </Button>
           </motion.div>

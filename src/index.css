@@ -35,6 +35,10 @@
   .registry-label {
     @apply block text-sm font-medium text-registry-navy mb-2;
   }
+
+  .registry-btn-pink {
+    @apply px-6 py-3 bg-registry-pink text-registry-light font-medium rounded-sm border border-registry-pink hover:bg-white hover:text-registry-pink transition-colors focus:outline-none focus:ring-2 focus:ring-registry-pink focus:ring-offset-2;
+  }
 }
 
 /* Custom minimal scrollbar */
@@ -56,7 +60,6 @@
 
 /* Animations */
 @keyframes shake {
-
   0%,
   100% {
     transform: translateX(0);
@@ -72,7 +75,6 @@
 }
 
 @keyframes flash-red {
-
   0%,
   100% {
     background-color: transparent;
@@ -115,6 +117,38 @@
   }
 }
 
+@keyframes glitch-anim-pink {
+  0% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+    text-shadow: 2px 0 #ed71a5, -2px 0 blue;
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+    text-shadow: 2px 0 blue, -2px 0 #ed71a5;
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+    text-shadow: -2px 0 #ed71a5, 2px 0 blue;
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+    text-shadow: -2px 0 blue, 2px 0 #ed71a5;
+  }
+
+  100% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+}
+
 @keyframes marquee {
   0% {
     transform: translateX(0);
@@ -135,6 +169,10 @@
 
 .glitch-text {
   animation: glitch-anim 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+.glitch-text-pink {
+  animation: glitch-anim-pink 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
 }
 
 /* 
