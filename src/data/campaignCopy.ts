@@ -21,7 +21,7 @@ export const campaignCopy = {
     ],
     occupationLabel: "What best describes your current occupation?",
     occupationOptions: [
-      "Student", "Employed", "Self-employed", "Between jobs", "Full-time carer", "Other", "Prefer not to say"
+      "Student", "Employed", "Self-employed", "Between jobs", "Other", "Prefer not to say"
     ],
     childrenLabel: "Do you currently have children?",
     childrenOptions: ["Yes", "No", "Prefer not to say"],
@@ -96,7 +96,7 @@ export const campaignCopy = {
     body2: "But it should not be automatic.",
     body3: "Choosing to become a parent is valid.",
     body4: "Choosing a different path is valid too.",
-    statement: "The most meaningful life is the one you consciously choose—not the one you are expected to live.",
+    statement: "The most meaningful life is the one you consciously choose - not the one you are expected to live.",
     ctaLead: "Ready to see the script you have been following?",
     cta: "ENTER THE LIFE SCRIPT EXPERIENCE"
   },

@@ -29,11 +29,13 @@ export const QuestioningSection: React.FC<QuestioningSectionProps> = ({ onNext }
     <CampaignLayout centered>
       <div className="relative w-full max-w-2xl mx-auto h-[60vh] flex flex-col items-center justify-center">
         
-        {/* Faded background result card */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none select-none overflow-hidden">
-          <h1 className="text-[12rem] font-bold text-registry-navy whitespace-nowrap leading-none">
-            {resultCopy.predictionValue}
-          </h1>
+        {/* Faded background result text spanning full screen with marquee effect */}
+        <div className="fixed inset-0 flex items-center opacity-[0.03] pointer-events-none select-none overflow-hidden z-0">
+          <div className="animate-marquee whitespace-nowrap">
+            <h1 className="text-[15rem] md:text-[25rem] font-black text-registry-navy leading-none tracking-tighter mix-blend-multiply pr-12">
+              {resultCopy.predictionValue} • {resultCopy.predictionValue} • {resultCopy.predictionValue} • {resultCopy.predictionValue}
+            </h1>
+          </div>
         </div>
 
         <div className="relative z-10 w-full text-center space-y-12">

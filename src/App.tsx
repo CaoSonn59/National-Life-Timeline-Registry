@@ -28,9 +28,9 @@ function App() {
           />
         );
       case "analysing":
-        return <AnalysingSection onComplete={() => goToStep("result")} />;
+        return <AnalysingSection formData={formData} onComplete={() => goToStep("result")} />;
       case "result":
-        return <ResultSection onComplete={() => goToStep("question")} />;
+        return <ResultSection formData={formData} onComplete={() => goToStep("question")} />;
       case "question":
         return <QuestioningSection onNext={() => goToStep("transition")} />;
       case "transition":

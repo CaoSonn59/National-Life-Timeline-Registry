@@ -3,14 +3,21 @@ import { motion } from 'framer-motion';
 import { campaignCopy } from '../data/campaignCopy';
 import { CampaignLayout } from '../components/campaign/CampaignLayout';
 
+import type { AssessmentFormData } from '../types/campaign';
+
 interface AnalysingSectionProps {
+  formData?: AssessmentFormData;
   onComplete: () => void;
 }
 
-export const AnalysingSection: React.FC<AnalysingSectionProps> = ({ onComplete }) => {
+export const AnalysingSection: React.FC<AnalysingSectionProps> = ({ formData, onComplete }) => {
   const [progress, setProgress] = useState(0);
   const [stepIndex, setStepIndex] = useState(0);
   const copy = campaignCopy.analysing;
+
+  // Determine deviation
+  const isDeviant = formData && formData.age && formData.age >= 30 && 
+    (formData.relationshipStatus === "Single" || formData.hasChildren === "No");
 
   // Simulate progress
   useEffect(() => {
@@ -40,18 +47,18 @@ export const AnalysingSection: React.FC<AnalysingSectionProps> = ({ onComplete }
 
   return (
     <CampaignLayout centered>
-      <div className="max-w-md w-full mx-auto" aria-live="polite" aria-busy="true">
-        <h2 className="text-xl md:text-2xl font-bold mb-2 text-center uppercase tracking-wide">
-          {copy.mainLabel}
+      <div className={`max-w-md w-full mx-auto ${isDeviant && progress > 50 ? 'animate-shake' : ''}`} aria-live="polite" aria-busy="true">
+        <h2 className={`text-xl md:text-2xl font-bold mb-2 text-center uppercase tracking-wide ${isDeviant && progress > 70 ? 'text-registry-red glitch-text' : ''}`}>
+          {isDeviant && progress > 70 ? "[WARNING] DEVIATION DETECTED" : copy.mainLabel}
         </h2>
-        <p className="text-sm text-registry-gray text-center mb-8">
+        <p className={`text-sm text-center mb-8 ${isDeviant && progress > 70 ? 'text-registry-red font-bold' : 'text-registry-gray'}`}>
           {copy.secondaryText}
         </p>
 
         {/* Progress Bar */}
-        <div className="w-full h-1 bg-registry-border mb-6">
+        <div className={`w-full h-1 mb-6 ${isDeviant && progress > 70 ? 'bg-registry-red/30' : 'bg-registry-border'}`}>
           <motion.div
-            className="h-full bg-registry-navy"
+            className={`h-full ${isDeviant && progress > 70 ? 'bg-registry-red' : 'bg-registry-navy'}`}
             style={{ width: `${progress}%` }}
             initial={{ width: 0 }}
           />

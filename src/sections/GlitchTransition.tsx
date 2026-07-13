@@ -12,7 +12,7 @@ export const GlitchTransition: React.FC<GlitchTransitionProps> = ({ onComplete }
 
   useEffect(() => {
     // Shorter transition if reduced motion is preferred
-    const duration = prefersReducedMotion ? 600 : 1200;
+    const duration = prefersReducedMotion ? 600 : 4000;
     const timer = setTimeout(onComplete, duration);
     return () => clearTimeout(timer);
   }, [onComplete, prefersReducedMotion]);
@@ -48,7 +48,7 @@ export const GlitchTransition: React.FC<GlitchTransitionProps> = ({ onComplete }
             </div>
             
             <div className="w-full max-w-md mx-auto h-2 bg-registry-border mt-12 relative overflow-hidden">
-               <div className="absolute top-0 right-0 h-full bg-registry-red w-full origin-right animate-[shrink_0.8s_ease-out_forwards]" />
+               <div className="absolute top-0 right-0 h-full bg-registry-red w-full origin-right animate-[shrink_4s_ease-out_forwards]" />
             </div>
           </div>
         </div>

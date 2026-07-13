@@ -20,6 +20,7 @@ export const AssessmentFormSection: React.FC<AssessmentFormSectionProps> = ({
   onBack
 }) => {
   const [error, setError] = useState<string | null>(null);
+  const [showJudgment, setShowJudgment] = useState(false);
   const copy = campaignCopy.form;
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -118,22 +119,39 @@ export const AssessmentFormSection: React.FC<AssessmentFormSectionProps> = ({
               </select>
             </div>
 
-            <div>
+            <div className="relative">
               <label htmlFor="children" className="registry-label">
                 {copy.childrenLabel}
               </label>
               <select
                 id="children"
                 required
-                className="registry-input bg-none"
+                className="registry-input bg-none relative z-10"
                 value={formData.hasChildren}
-                onChange={(e) => updateFormData({ hasChildren: e.target.value })}
+                onChange={(e) => {
+                  updateFormData({ hasChildren: e.target.value });
+                  if (e.target.value === "No") setShowJudgment(true);
+                  else setShowJudgment(false);
+                }}
+                onMouseEnter={() => {
+                  if (formData.hasChildren === "No") setShowJudgment(true);
+                }}
+                onMouseLeave={() => setShowJudgment(false)}
               >
                 <option value="" disabled>Select option...</option>
                 {copy.childrenOptions.map((opt) => (
                   <option key={opt} value={opt}>{opt}</option>
                 ))}
               </select>
+              {showJudgment && (
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="absolute right-0 top-full mt-1 text-xs text-registry-red font-bold bg-white px-2 py-1 border border-registry-red z-20 shadow-sm"
+                >
+                  Are you sure about that?
+                </motion.div>
+              )}
             </div>
 
             <div className="pt-6 border-t border-registry-border">

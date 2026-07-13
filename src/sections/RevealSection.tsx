@@ -15,11 +15,11 @@ export const RevealSection: React.FC<RevealSectionProps> = ({ onNext }) => {
     const t1 = setTimeout(() => setStep(1), 1500);
     const t2 = setTimeout(() => setStep(2), 3000);
     const t3 = setTimeout(() => setStep(3), 5000);
-    const t4 = setTimeout(() => setStep(4), 7000);
-    const t5 = setTimeout(() => setStep(5), 9000);
+    const t4 = setTimeout(() => setStep(4), 9000); // Increased from 7000
+    const t5 = setTimeout(() => setStep(5), 11000); // Increased from 9000
     
     // Auto-advance after showing everything
-    const tNext = setTimeout(onNext, 13000);
+    const tNext = setTimeout(onNext, 16000); // Increased from 13000
 
     return () => {
       clearTimeout(t1);
@@ -32,7 +32,7 @@ export const RevealSection: React.FC<RevealSectionProps> = ({ onNext }) => {
   }, [onNext]);
 
   return (
-    <div className="min-h-screen bg-black text-white selection:bg-registry-red selection:text-white">
+    <div className={`min-h-screen text-white selection:bg-registry-red selection:text-white transition-colors duration-200 ${step >= 3 ? 'bg-[#1a0000]' : 'bg-black'}`}>
       <CampaignLayout centered>
         <div className="w-full max-w-3xl mx-auto space-y-16 py-12">
           
@@ -63,8 +63,8 @@ export const RevealSection: React.FC<RevealSectionProps> = ({ onNext }) => {
             <motion.h1 
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: step >= 3 ? 1 : 0.9, opacity: step >= 3 ? 1 : 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-7xl md:text-9xl font-black text-registry-red tracking-tighter"
+              transition={{ duration: 0.1 }}
+              className="text-7xl md:text-9xl font-black text-registry-red tracking-tighter glitch-text"
             >
               {copy.society}
             </motion.h1>

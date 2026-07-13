@@ -8,27 +8,30 @@
   body {
     @apply bg-registry-light text-registry-navy font-sans antialiased m-0 p-0;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-semibold tracking-tight;
   }
 }
 
 @layer components {
   .registry-btn {
-    @apply px-6 py-3 bg-registry-navy text-registry-light font-medium rounded-sm border border-registry-navy
-    hover:bg-registry-light hover:text-registry-navy transition-colors focus:outline-none focus:ring-2 focus:ring-registry-navy focus:ring-offset-2;
+    @apply px-6 py-3 bg-registry-navy text-registry-light font-medium rounded-sm border border-registry-navy hover:bg-registry-light hover:text-registry-navy transition-colors focus:outline-none focus:ring-2 focus:ring-registry-navy focus:ring-offset-2;
   }
-  
+
   .registry-btn-red {
-    @apply px-6 py-3 bg-registry-red text-registry-light font-medium rounded-sm border border-registry-red
-    hover:bg-white hover:text-registry-red transition-colors focus:outline-none focus:ring-2 focus:ring-registry-red focus:ring-offset-2;
+    @apply px-6 py-3 bg-registry-red text-registry-light font-medium rounded-sm border border-registry-red hover:bg-white hover:text-registry-red transition-colors focus:outline-none focus:ring-2 focus:ring-registry-red focus:ring-offset-2;
   }
-  
+
   .registry-input {
     @apply w-full px-4 py-3 bg-white border border-registry-border rounded-sm focus:outline-none focus:ring-1 focus:ring-registry-navy focus:border-registry-navy transition-colors;
   }
-  
+
   .registry-label {
     @apply block text-sm font-medium text-registry-navy mb-2;
   }
@@ -38,12 +41,104 @@
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   @apply bg-registry-border rounded-full;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-registry-gray;
 }
+
+/* Animations */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-5px) rotate(-2deg);
+  }
+
+  75% {
+    transform: translateX(5px) rotate(2deg);
+  }
+}
+
+@keyframes flash-red {
+
+  0%,
+  100% {
+    background-color: transparent;
+  }
+
+  50% {
+    background-color: rgba(220, 38, 38, 0.2);
+  }
+}
+
+@keyframes glitch-anim {
+  0% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+
+  20% {
+    transform: translate(-2px, 2px);
+    text-shadow: 2px 0 red, -2px 0 blue;
+  }
+
+  40% {
+    transform: translate(-2px, -2px);
+    text-shadow: 2px 0 blue, -2px 0 red;
+  }
+
+  60% {
+    transform: translate(2px, 2px);
+    text-shadow: -2px 0 red, 2px 0 blue;
+  }
+
+  80% {
+    transform: translate(2px, -2px);
+    text-shadow: -2px 0 blue, 2px 0 red;
+  }
+
+  100% {
+    transform: translate(0);
+    text-shadow: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.5s cubic-bezier(.36, .07, .19, .97) both infinite;
+}
+
+.animate-flash-bg {
+  animation: flash-red 1s ease-in-out infinite;
+}
+
+.glitch-text {
+  animation: glitch-anim 0.2s cubic-bezier(.25, .46, .45, .94) both infinite;
+}
+
+/* 
+.animate-marquee {
+  animation: marquee 100s linear infinite;
+  display: inline-flex;
+} */
