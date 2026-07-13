@@ -64,7 +64,7 @@ export const campaignCopy = {
     q1: "Why was parenthood the only prediction?",
     a1: "Because society often assumes it comes next.",
     a2: "Not because you chose it.",
-    cta: "Why was parenthood the only prediction?"
+    cta: "Who decided this was the default?"
   },
   reveal: {
     main1: "There is no National Life Timeline Registry.",
